@@ -26,15 +26,15 @@ triangle <- function(a, b, c) {
 }
 
 ## 3D Shape Classes
-cuboid <- function(width, length, height) {
-  cub <- list(width = width, length = length, height = height)
+cuboid <- function(height, width, depth) {
+  cub <- list(width = width, depth = depth, height = height)
   class(cub) <- c("shape","3dShape", "cuboid")
   return(cub)
 }
 
-cube <- function(sideLength){
-  return(cuboid(width = sideLength, length = sideLength))
-}
+#cube <- function(sideLength){
+#  return(cuboid(height = sideLength, width = sideLength, depth = sideLength))
+#}  not working
 
 sphere <- function(radius){
   sph <- list(radius = radius)
