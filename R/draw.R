@@ -38,7 +38,7 @@ draw.sphere <- function(obj, color =  "#FF0000") {
   decorate3d(box = FALSE ,axes = TRUE)
 }
 
-draw.cuboid <- function(obj){
+draw.cuboid <- function(obj) {
   height <- obj$height
   width <- obj$width
   depth <- obj$depth
