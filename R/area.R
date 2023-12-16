@@ -24,7 +24,7 @@ area.triangle <- function(obj) {
 
 #3D - these are surface areas
 area.cuboid <- function(obj){
-  return(2 * (obj$length * obj$width + obj$length * obj$height + obj$height * obj$width))
+  return(2 * (obj$depth * obj$width + obj$depth * obj$height + obj$height * obj$width))
 }
 
 area.sphere <- function(obj){

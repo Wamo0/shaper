@@ -8,7 +8,7 @@ volume <- function(obj) {
 }
 
 volume.cuboid <- function(obj){
-  return(obj$length*obj$height*obj$width)
+  return(obj$depth*obj$height*obj$width)
 }
 
 volume.sphere <- function(obj){
