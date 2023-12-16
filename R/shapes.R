@@ -32,9 +32,9 @@ cuboid <- function(height, width, depth) {
   return(cub)
 }
 
-#cube <- function(sideLength){
-#  return(cuboid(height = sideLength, width = sideLength, depth = sideLength))
-#}  not working
+cube <- function(sideLength){
+  return(cuboid(height = sideLength, width = sideLength, depth = sideLength))
+}
 
 sphere <- function(radius){
   sph <- list(radius = radius)
