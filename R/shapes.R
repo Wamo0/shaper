@@ -1,6 +1,6 @@
 ## 2D Shape Classes
-rectangle <- function(length, width) {
-  rect <- list(length = length, width = width)
+rectangle <- function(height, width) {
+  rect <- list(height = height, width = width)
   class(rect) <- c("shape","2dShape", "rectangle")
   return(rect)
 }

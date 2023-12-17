@@ -9,7 +9,7 @@ area <- function(obj) {
 
 #2D
 area.rectangle <- function(obj) {
-  return(obj$length * obj$width)
+  return(obj$height * obj$width)
 }
 
 area.circle <- function(obj) {

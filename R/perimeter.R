@@ -8,7 +8,7 @@ perimeter <- function(obj) {
 }
 
 perimeter.rectangle <- function(obj) {
-  return(2*obj$length + 2*obj$width)
+  return(2*obj$height + 2*obj$width)
 }
 
 perimeter.circle <- function(obj) {

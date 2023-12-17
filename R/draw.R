@@ -9,7 +9,7 @@ draw <- function(obj) {
 
 draw.rectangle <- function(obj) {
   x <- c(0, 0, obj$width, obj$width, 0)
-  y <- c(0, obj$length, obj$length, 0, 0)
+  y <- c(0, obj$height, obj$height, 0, 0)
 
   plot(x, y, type = "l", asp = 1)
 }
