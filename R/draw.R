@@ -38,26 +38,38 @@ draw.sphere <- function(obj, color =  "#FF0000") {
   decorate3d(box = FALSE ,axes = TRUE)
 }
 
-draw.cuboid <- function(obj) {
+draw.cuboid <- function(obj, color =  "red") {
   height <- obj$height
   width <- obj$width
   depth <- obj$depth
 
-  vertices <- matrix(c(0, 0, 0,
-                       width, 0, 0,
-                       width, height, 0,
-                       0, height, 0,
-                       0, 0, depth,
-                       width, 0, depth,
-                       width, height, depth,
-                       0, height, depth), ncol = 3, byrow = TRUE)
+  vertices <- cbind(
+    c(0,0,0),
+    c(0,0, height),
+    c(0, depth,0),
+    c(0, depth, height),
+    c( width,0,0),
+    c( width,0, height),
+    c( width, depth,0),
+    c( width, depth, height)
+  )
 
-  edges <- matrix(c(1, 2, 2, 3, 3, 4, 4, 1,
-                    1, 5, 2, 6, 3, 7, 4, 8,
-                    5, 6, 6, 7, 7, 8, 8, 5), ncol = 2, byrow = TRUE)
+  indices <- cbind(
+    c(1, 5, 7, 3),
+    c(2, 6, 8, 4),
+    c(1, 2, 4, 3),
+    c(5, 6, 8, 7),
+    c(3, 7, 8, 4),
+    c(1, 5, 6, 2)
+  )
 
-  plot3d(vertices, type = "n", axes = FALSE, box = FALSE)
-  segments3d(vertices[edges[, 1], ], vertices[edges[, 2], ])
-  axes3d("bbox", labels = c("x", "y", "z"))
-  box3d()
+  cuboid <- qmesh3d(
+    vertices = vertices,
+    indices = indices,
+    homogeneous = FALSE
+  )
+
+  shade3d(cuboid, color = color, alpha = 0.5)
+  wire3d
+  decorate3d()
 }
