@@ -34,7 +34,7 @@ draw.circle <- function(obj){
 draw.sphere <- function(obj, color =  "#FF0000") {
   open3d()
 
-  spheres3d(0, 0, 0, radius = obj$radius, color = color, alpha = 0.8)
+  spheres3d(0, 0, 0, radius = obj$radius, color = color, alpha = 0.7)
   decorate3d(box = FALSE ,axes = TRUE)
 }
 
@@ -69,7 +69,16 @@ draw.cuboid <- function(obj, color =  "red") {
     homogeneous = FALSE
   )
 
-  shade3d(cuboid, color = color, alpha = 0.5)
+  shade3d(cuboid, color = color, alpha = 0.7)
   wire3d
+  decorate3d()
+}
+
+draw.cylinder <- function(obj){
+  center <- matrix(c(0, 0, 0, 0, 0, obj$height), ncol = 3, byrow = TRUE)
+  radius <- obj$radius
+  cylinder_mesh <- cylinder3d(center = center, radius = radius, sides = 1000,closed=-2)
+  open3d()
+  shade3d(cylinder_mesh, color = "blue", alpha = 0.7)
   decorate3d()
 }
