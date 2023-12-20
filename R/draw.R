@@ -1,47 +1,47 @@
-draw <- function(obj) {
-  if(!inherits(obj,"shape")){
-    stop("Draw can only be passed shape objs")
+draw <- function(shape) {
+  if(!inherits(shape,"shape")){
+    stop("Draw can only be passed objects of class shape")
   }
   else{
     UseMethod("draw")
   }
 }
 
-draw.rectangle <- function(obj) {
-  x <- c(0, 0, obj$width, obj$width, 0)
-  y <- c(0, obj$height, obj$height, 0, 0)
+draw.rectangle <- function(rect) {
+  x <- c(0, 0, rect$width, rect$width, 0)
+  y <- c(0, rect$height, rect$height, 0, 0)
 
   plot(x, y, type = "l", asp = 1)
 }
 
-draw.triangle <- function(obj) {
-  x <- c(0, obj$b, obj$c, 0)
-  y <- c(0, 0, obj$a, 0)
+draw.triangle <- function(tri) {
+  x <- c(0, tri$b, tri$c, 0)
+  y <- c(0, 0, tri$a, 0)
 
   plot(x, y, type = "l", asp = 1)
 }
 
-draw.circle <- function(obj){
+draw.circle <- function(circ){
 
   theta <- seq(0, 2 * pi, length.out = 100)
 
-  x <- obj$radius * cos(theta)
-  y <- obj$radius * sin(theta)
+  x <- circ$radius * cos(theta)
+  y <- circ$radius * sin(theta)
 
   plot(x,y, type = "l", asp = 1)
 }
 
-draw.sphere <- function(obj, color =  "#FF0000") {
+draw.sphere <- function(sph, color =  "#FF0000") {
   open3d()
 
-  spheres3d(0, 0, 0, radius = obj$radius, color = color, alpha = 0.7)
+  spheres3d(0, 0, 0, radius = sph$radius, color = color, alpha = 0.7)
   decorate3d(box = FALSE ,axes = TRUE)
 }
 
-draw.cuboid <- function(obj, color =  "red") {
-  height <- obj$height
-  width <- obj$width
-  depth <- obj$depth
+draw.cuboid <- function(cub, color =  "red") {
+  height <- cub$height
+  width <- cub$width
+  depth <- cub$depth
 
   vertices <- cbind(
     c(0,0,0),
@@ -74,9 +74,9 @@ draw.cuboid <- function(obj, color =  "red") {
   decorate3d()
 }
 
-draw.cylinder <- function(obj){
-  center <- matrix(c(0, 0, 0, 0, 0, obj$height), ncol = 3, byrow = TRUE)
-  radius <- obj$radius
+draw.cylinder <- function(cyl){
+  center <- matrix(c(0, 0, 0, 0, 0, cyl$height), ncol = 3, byrow = TRUE)
+  radius <- cyl$radius
   cylinder_mesh <- cylinder3d(center = center, radius = radius, sides = 1000,closed=-2)
   open3d()
   shade3d(cylinder_mesh, color = "blue", alpha = 0.7)
