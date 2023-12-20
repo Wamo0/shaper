@@ -1,16 +1,16 @@
-summary() <- function(obj){
-  if(!inherits(obj,"shape")){
-    stop("Summary can only be passed shape objs")
+summary() <- function(shp){
+  if(!inherits(shp,"shape")){
+    stop("This summary function can only be passed objects of class shape")
   }
   else{
     UseMethod("summary")
   }
 }
 
-summary.2dShape <- function(obj){
-  cat(class(obj)[3],"\nperimeter:",perimeter(obj),"\nArea:",area(obj))
+summary.2dShape <- function(shp){
+  cat(class(shp)[3],"\nperimeter:",perimeter(shp),"\nArea:",area(shp))
 }
 
-summary.3dShape <- function(obj){
-  cat(class(obj)[3],"\nSurface-area:",area(obj),"\nVolume:",volume(obj))
+summary.3dShape <- function(shp){
+  cat(class(shp)[3],"\nSurface-area:",area(shp),"\nVolume:",volume(shp))
 }
