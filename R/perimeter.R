@@ -1,20 +1,20 @@
-perimeter <- function(obj) {
-  if(!inherits(obj,"2dShape")){
-    stop("perimeter can only be passed 2D hape objs")
+perimeter <- function(shp) {
+  if(!inherits(shp,"2dShape")){
+    stop("perimeter can only be passed objects of class 2dShape")
   }
   else{
     UseMethod("perimeter")
   }
 }
 
-perimeter.rectangle <- function(obj) {
-  return(2*obj$height + 2*obj$width)
+perimeter.rectangle <- function(rect) {
+  return(2*rect$height + 2*rect$width)
 }
 
-perimeter.circle <- function(obj) {
-  return(2*pi*obj$radius)
+perimeter.circle <- function(circ) {
+  return(2*pi*circ$radius)
 }
 
-perimeter.triangle <- function(obj) {
-  return(obj$a+obj$b+obj$c)
+perimeter.triangle <- function(tri) {
+  return(tri$a+tri$b+tri$c)
 }

@@ -1,6 +1,6 @@
-area <- function(obj) {
-  if(!inherits(obj,"shape")){
-    stop("area can only be passed shape objs")
+area <- function(shp) {
+  if(!inherits(shp,"shape")){
+    stop("area can only be passed objects of class shape")
   }
   else{
     UseMethod("area")
@@ -8,29 +8,29 @@ area <- function(obj) {
 }
 
 #2D
-area.rectangle <- function(obj) {
-  return(obj$height * obj$width)
+area.rectangle <- function(rect) {
+  return(rect$height * rect$width)
 }
 
-area.circle <- function(obj) {
-  return(pi*obj$radius^2)
+area.circle <- function(circ) {
+  return(pi*circ$radius^2)
 }
 
-area.triangle <- function(obj) {
-  s <- perimeter(obj)/2
-  Area <- sqrt(s*(s-obj$a)*(s-obj$b)*(s-obj$c)) #Heron's formula
+area.triangle <- function(tri) {
+  s <- perimeter(tri)/2
+  Area <- sqrt(s*(s-tri$a)*(s-tri$b)*(s-tri$c)) #Heron's formula
   return(Area)
 }
 
 #3D - these are surface areas
-area.cuboid <- function(obj){
-  return(2 * (obj$depth * obj$width + obj$depth * obj$height + obj$height * obj$width))
+area.cuboid <- function(cub){
+  return(2 * (cub$depth * cub$width + cub$depth * cub$height + cub$height * cub$width))
 }
 
-area.sphere <- function(obj){
-  return(4*pi*obj$radius^2)
+area.sphere <- function(sph){
+  return(4*pi*sph$radius^2)
 }
 
-area.cylinder <- function(obj){
-  return(2*pi*obj$radius*(obj$radius+obj$height))
+area.cylinder <- function(cyl){
+  return(2*pi*cyl$radius*(cyl$radius+cyl$height))
 }

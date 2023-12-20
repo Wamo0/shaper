@@ -1,20 +1,20 @@
-volume <- function(obj) {
-  if(!inherits(obj,"3dShape")){
-    stop("Volume can only be passed 3d shape objs")
+volume <- function(shp) {
+  if(!inherits(shp,"3dShape")){
+    stop("Volume can only be passed objects of class 3dShape")
   }
   else{
     UseMethod("volume")
   }
 }
 
-volume.cuboid <- function(obj){
-  return(obj$depth*obj$height*obj$width)
+volume.cuboid <- function(cub){
+  return(cub$depth*cub$height*cub$width)
 }
 
-volume.sphere <- function(obj){
-  return((4/3)*pi*obj$radius^3)
+volume.sphere <- function(sph){
+  return((4/3)*pi*sph$radius^3)
 }
 
-volume.cylinder <- function(obj){
-  return(pi*obj$radius^2*obj$height)
+volume.cylinder <- function(cyl){
+  return(pi*cyl$radius^2*cyl$height)
 }
