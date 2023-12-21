@@ -99,6 +99,7 @@ draw.cuboid <- function(cub, color =  "red", ...) {
     homogeneous = FALSE
   )
 
+  open3d()
   shade3d(cuboid, color = color, alpha = 0.7)
   wire3d
   decorate3d()
