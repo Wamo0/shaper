@@ -11,6 +11,10 @@ perimeter.rectangle <- function(rect) {
   return(2*rect$height + 2*rect$width)
 }
 
+perimeter.square <- function(squ){
+  return(4 * squ$sideLength)
+}
+
 perimeter.circle <- function(circ) {
   return(2*pi*circ$radius)
 }
