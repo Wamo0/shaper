@@ -1,0 +1,63 @@
+---
+title: "shaper"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{shaper}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo=FALSE}
+#library(shaper)
+```
+
+
+## Introduction
+
+shaper is an R package which allows to create, analyze and visualize some basic two-dimensional (2D) and three-dimensional (3D) shapes. Our journey through this vignette will take us from basic constructs of simple shapes like squares and circles, to the more complex realms of cuboids and spheres.
+
+## Background
+
+Geometry is a fundamental branch of mathematics that finds extensive applications in areas ranging from architectural design and engineering to computer graphics and data visualization. In R, the manipulation and visualization of geometric shapes not only enhance the understanding of spatial concepts but also enrich the graphical representation of data.
+
+## What You Will Learn
+
+In this vignette, we dive into:
+
+Creation of Geometric Shapes: We'll start by defining and creating basic 2D shapes such as rectangles, squares, circles, and triangles, and 3D shapes like cuboids, cubes, spheres, and cylinders. Each shape is created through custom R functions, encapsulating properties like dimensions.
+
+Analytical Functions: Explore functions to calculate key properties of these shapes, such as area and perimeter for 2D shapes, and volume for 3D shapes. These functions demonstrate how mathematical principles are applied programmatically.
+
+Summarization of Shape Properties: Learn how to use a summary function that elegantly displays important attributes of a shape, like its type, area, perimeter (for 2D shapes), and volume (for 3D shapes).
+
+Visualization Techniques: Delve into methods for visualizing these shapes in R. We'll use ggplot2 for plotting 2D shapes and rgl for rendering 3D shapes, showcasing how different R packages can be employed for effective visualization.
+
+## Installation
+
+shaper will run in Windows, Mac OS X, or Linux. To install it you first need to install [R](https://cran.r-project.org/). Installing [RStudio](https://www.rstudio.com/) as a nice desktop environment for using R is also recommended.
+
+Once in R you can type at the R command prompt:
+
+```{r, eval=FALSE}
+install.packages('devtools')
+devtools::install_github('EClancyMU/shaper')
+```
+
+to install the latest development version of the package from shaper [GitHub page](https://github.com/EClancyMU/shaper).
+
+In either case, if you then type: 
+
+```{r, eval=FALSE}
+library(shaper)
+```
+
+it will load in all the aforementioned __shaper__ functions.
+
+Some features may not yet be fully tested, and occasionally this version might be liable to break when it is in the process of being updated. If you find bugs or want to suggest new features please visit the [GitHub issues page](https://github.com/EClancyMU/shaper/issues). 
