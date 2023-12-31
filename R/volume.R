@@ -7,12 +7,12 @@ volume <- function(shp) {
   }
 }
 
-volume.cuboid <- function(cub){
-  return(cub$depth*cub$height*cub$width)
+volume.cuboid <- function(cu){
+  return(cu$depth*cu$height*cu$width)
 }
 
-volume.cube <- function(cube){
-  return(cube$sideLength * cube$sideLength * cube$sideLength)
+volume.cube <- function(cub){
+  return(cub$sideLength * cub$sideLength * cub$sideLength)
 }
 
 volume.sphere <- function(sph){

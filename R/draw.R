@@ -26,6 +26,23 @@ draw.rectangle <- function(rec, color = "blue", fillColor = "transparent") {
   print(p)
 }
 
+draw.square <- function(squ, color = "blue", fillColor = "transparent") {
+  square_data <- data.frame(
+    x = c(0, squ$sideLength, squ$sideLength, 0),
+    y = c(0, 0, squ$sideLength, squ$sideLength)
+  )
+
+  p <- ggplot(square_data, aes(x, y)) +
+    geom_polygon(fill = fillColor, color = color, size = 2) +
+    labs(x = "Side Length", y = "Side Length", title = "Square") +
+    theme_minimal() +
+    coord_fixed(ratio = 1) +
+    lims(x = c(0, squ$sideLength), y = c(0, squ$sideLength))
+
+  print(p)
+}
+
+
 draw.triangle <- function(triangle, color = "blue", fillColor = "transparent") {
   triangle_data <- data.frame(
     x = c(0, triangle$a, triangle$b),
@@ -104,6 +121,42 @@ draw.cuboid <- function(cub, color =  "red", ...) {
   wire3d
   decorate3d()
 }
+
+draw.cube <- function(cube, color = "red", ...) {
+  sideLength <- cube$sideLength
+
+  vertices <- cbind(
+    c(0,0,0),
+    c(0,0, sideLength),
+    c(0, sideLength,0),
+    c(0, sideLength, sideLength),
+    c(sideLength,0,0),
+    c(sideLength,0, sideLength),
+    c(sideLength, sideLength,0),
+    c(sideLength, sideLength, sideLength)
+  )
+
+  indices <- cbind(
+    c(1, 5, 7, 3),
+    c(2, 6, 8, 4),
+    c(1, 2, 4, 3),
+    c(5, 6, 8, 7),
+    c(3, 7, 8, 4),
+    c(1, 5, 6, 2)
+  )
+
+  cube_mesh <- qmesh3d(
+    vertices = vertices,
+    indices = indices,
+    homogeneous = FALSE
+  )
+
+  open3d()
+  shade3d(cube_mesh, color = color, alpha = 0.7)
+  wire3d
+  decorate3d()
+}
+
 
 draw.cylinder <- function(cyl, color = "blue", ..){
   center <- matrix(c(0, 0, 0, 0, 0, cyl$height), ncol = 3, byrow = TRUE)

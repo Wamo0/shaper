@@ -50,20 +50,20 @@ cuboid <- function(height, width, depth) {
   if(!is.numeric.value(height) || !is.numeric.value(width) || !is.numeric.value(depth)) {
     stop("Height, width and depth must be numeric values.")
   }
-  cub <- list(width = width, depth = depth, height = height)
-  class(cub) <- c("shape","3dShape", "cuboid")
-  return(cub)
+  cu <- list(width = width, depth = depth, height = height)
+  class(cu) <- c("shape","3dShape", "cuboid")
+  return(cu)
 }
 
 cube <- function(sideLength){
   if(!is.numeric.value(sideLength)) {
     stop("Side Length must be a numeric value.")
   }
-  cube <- cuboid(sideLength, sideLength, sideLength)
-  class(cube) <- c("shape","3dShape","cube")
+  cub <- cuboid(sideLength, sideLength, sideLength)
+  class(cub) <- c("shape","3dShape","cube")
   # Add 'sideLength' attribute for convenience in cube-specific calculations
-  cube$sideLength <- sideLength
-  return(cube)
+  cub$sideLength <- sideLength
+  return(cub)
 }
 
 sphere <- function(radius){

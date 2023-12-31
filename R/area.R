@@ -27,12 +27,12 @@ area.triangle <- function(tri) {
 }
 
 #3D - these are surface areas
-area.cuboid <- function(cub){
-  return(2 * (cub$depth * cub$width + cub$depth * cub$height + cub$height * cub$width))
+area.cuboid <- function(cu){
+  return(2 * (cu$depth * cu$width + cu$depth * cu$height + cu$height * cu$width))
 }
 
-area.cube <- function(cube){
-  return(6 * cube$sideLength * cube$sideLength)
+area.cube <- function(cub){
+  return(6 * cub$sideLength * cub$sideLength)
 }
 
 area.sphere <- function(sph){
